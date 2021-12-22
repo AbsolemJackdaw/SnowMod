@@ -2,6 +2,9 @@ package com.jackdaw.events;
 
 import com.jackdaw.capability.Bladder;
 import com.jackdaw.mod.SnowMod;
+import com.jackdaw.network.NetworkHandler;
+import com.jackdaw.network.client.HandleClientPacket;
+import com.jackdaw.network.server.SPacketSpawnParticle;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.UseAnim;
 import net.minecraftforge.api.distmarker.Dist;
@@ -20,7 +23,7 @@ public class PlayerTracker {
                 if (player.level.isClientSide()) {
 
                     if (event.getItem().getUseAnimation().equals(UseAnim.DRINK)) {
-                        data.fill(event.getItem().getUseDuration() * 2);
+                        data.fill(event.getItem().getUseDuration() * 3);
                     }
                 }
             });
@@ -35,12 +38,11 @@ public class PlayerTracker {
 
                 if (KeyRegistry.peekey.isDown() && data.getCapacity() > 0) {
                     data.empty(2);
-                    double x = event.player.xo;
-                    double y = event.player.yo + 0.7d;
-                    double z = event.player.zo;
-                    double deltaX = Math.toRadians(event.player.yHeadRot + 90.0d);
-                    double pwr = Math.min(2, -1 * (event.player.getXRot() - 90.0d) / 45.0d);
-                    event.player.level.addParticle(ParticleRegistry.YELLOW_PARTICLE.get(), x, y, z, Math.cos(deltaX) * pwr, 0.0d, Math.sin(deltaX) * pwr);
+
+                    HandleClientPacket.doClientParticle(event.player);
+
+                    //send around
+                    NetworkHandler.NETWORK.sendToServer(new SPacketSpawnParticle());
                 }
             }
         });
