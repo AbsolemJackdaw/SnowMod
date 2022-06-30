@@ -7,8 +7,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SnowLayerBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
-import java.util.Random;
-
 public class SnowLayerYellow extends SnowLayerBlock {
     public SnowLayerYellow(Properties p_56585_) {
         super(p_56585_);
