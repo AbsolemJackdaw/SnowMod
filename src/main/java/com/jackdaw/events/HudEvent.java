@@ -23,7 +23,7 @@ public class HudEvent {
 
         Bladder.get(Minecraft.getInstance().player).ifPresent(data -> {
             if (data.getCapacity() > 0) {
-                PoseStack stack = event.getMatrixStack();
+                PoseStack stack = event.getPoseStack();
                 stack.pushPose();
                 RenderSystem.setShader(GameRenderer::getPositionTexShader);
                 RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
