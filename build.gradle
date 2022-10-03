@@ -142,5 +142,4 @@ task publishCurseForge(type: TaskPublishCurseForge) {
     mainFile.releaseType = 'beta'
     mainFile.changelog = "${changelog}"
     mainFile.changelogType = 'markdown'
-    mainFile.addRequirement('transparent')
 }
