@@ -18,7 +18,7 @@ public class PlayerTracker {
 
     @SubscribeEvent
     public static void usedEvent(LivingEntityUseItemEvent.Finish event) {
-        if (event.getEntity() instanceof Player player) {
+        if (event.getEntityLiving() instanceof Player player) {
             Bladder.get(player).ifPresent(data -> {
                 if (player.level.isClientSide()) {
 

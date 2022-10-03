@@ -9,7 +9,7 @@ import net.minecraft.client.gui.GuiComponent;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.RenderGuiOverlayEvent;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -19,7 +19,7 @@ public class HudEvent {
     private static final ResourceLocation resLoc = new ResourceLocation(SnowMod.MODID, "textures/bladder_hud.png");
 
     @SubscribeEvent
-    public static void renderHUDOverlay(RenderGuiOverlayEvent.Pre event) {
+    public static void renderHUDOverlay(RenderGameOverlayEvent.Pre event) {
 
         Bladder.get(Minecraft.getInstance().player).ifPresent(data -> {
             if (data.getCapacity() > 0) {
