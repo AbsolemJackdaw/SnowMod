@@ -135,10 +135,10 @@ publishing {
 
 task publishCurseForge(type: TaskPublishCurseForge) {
 
-    apiToken = "${api_token_paintings}"
+    apiToken = "${api_token_snowmod}"
 
     // The main file to upload
-    def mainFile = upload(252042, jar)
+    def mainFile = upload(559310, jar)
     mainFile.releaseType = 'beta'
     mainFile.changelog = "${changelog}"
     mainFile.changelogType = 'markdown'
