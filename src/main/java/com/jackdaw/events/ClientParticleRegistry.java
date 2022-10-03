@@ -4,7 +4,7 @@ import com.jackdaw.mod.SnowMod;
 import com.jackdaw.particle.YellowParticle;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.ParticleFactoryRegisterEvent;
+import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.Mod;
 public class ClientParticleRegistry {
 
     @SubscribeEvent
-    public static void registry(ParticleFactoryRegisterEvent event) {
+    public static void registry(RegisterParticleProvidersEvent event) {
         Minecraft.getInstance().particleEngine.register(ParticleRegistry.YELLOW_PARTICLE.get(), YellowParticle.Factory::new);
 
     }
