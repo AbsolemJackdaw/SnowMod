@@ -2,6 +2,7 @@ package com.jackdaw.events;
 
 import com.jackdaw.mod.SnowMod;
 import com.jackdaw.particle.YellowParticle;
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -13,6 +14,5 @@ public class ClientParticleRegistry {
     @SubscribeEvent
     public static void registry(RegisterParticleProvidersEvent event) {
         event.register(ParticleRegistry.YELLOW_PARTICLE.get(), YellowParticle.Factory::new);
-
     }
 }
